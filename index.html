@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Rueda-Ramirez</title>
+    <title>Daniel Rueda-Ramirez | Business Analytics & Consulting | Notre Dame</title>
+    <meta name="description" content="Professional portfolio of Daniel Rueda-Ramirez, an Honors Business Analytics and Impact Consulting student at the University of Notre Dame specializing in data engineering, predictive modeling, and operational strategy.">
+    <meta name="author" content="Daniel Rueda-Ramirez">
+    <meta name="keywords" content="Daniel Rueda-Ramirez, Business Analytics, Impact Consulting, Notre Dame, data engineering, predictive modeling, operational strategy, portfolio">
+    <link rel="canonical" href="https://druedara.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://druedara.github.io/">
+    <meta property="og:title" content="Daniel Rueda-Ramirez | Business Analytics & Consulting">
+    <meta property="og:description" content="Honors Business Analytics and Impact Consulting student at the University of Notre Dame specializing in data engineering, predictive modeling, and operational strategy.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Daniel Rueda-Ramirez | Business Analytics & Consulting">
+    <meta name="twitter:description" content="Honors Business Analytics and Impact Consulting student at the University of Notre Dame specializing in data engineering, predictive modeling, and operational strategy.">
     
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -120,6 +131,9 @@
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
+            background: none;
+            border: none;
+            padding: 0;
         }
 
         .menu-toggle span {
@@ -1246,9 +1260,9 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
+    <nav aria-label="Main navigation">
         <div class="logo">Daniel Rueda-Ramirez</div>
-        <ul class="nav-links">
+        <ul class="nav-links" id="primaryNav">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
@@ -1257,11 +1271,11 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact" class="contact-btn">Contact</a></li>
         </ul>
-        <div class="menu-toggle" id="menuToggle">
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primaryNav">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
     </nav>
 
     <main>
@@ -1272,7 +1286,7 @@
                     <div class="headshot-line" aria-hidden="true"></div>
                     <div class="headshot-circle">
                         <!-- Replace the src with your headshot file (e.g. assets/headshot.jpg) -->
-                        <img src="assets/headshot.jpg" alt="Headshot" class="headshot-img" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
+                        <img src="assets/headshot.jpg" alt="Daniel Rueda-Ramirez - Business Analytics and Impact Consulting student at the University of Notre Dame" class="headshot-img" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
                         <div class="headshot-placeholder">Image<br>in here</div>
                     </div>
                     <div class="headshot-line" aria-hidden="true"></div>
@@ -1281,21 +1295,21 @@
                 <p class="hero-subtitle">Analyzing Data · Optimizing Systems · Driving Strategic Growth</p>
                 <p class="hero-description">Honors Business Analytics and Impact Consulting student at the University of Notre Dame, passionate about leveraging cutting-edge data analytics and AI to optimize business operations and create value through innovation, with expertise in data management, process automation, consulting cases, and business operations.</p>
                 <div class="contact-bubbles">
-                    <a href="mailto:danielrr0713@gmail.com" class="contact-bubble">
+                    <a href="mailto:danielrr0713@gmail.com" class="contact-bubble" aria-label="Send email to danielrr0713@gmail.com">
                         <span class="bubble-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7.5l8 5 8-5"/><path d="M4 16.5V7.5l8 5 8-5v9"/></svg></span>
-                        <span><i class="bi bi-envelope"></i> danielrr0713@gmail.com</span>
+                        <span><i class="bi bi-envelope" aria-hidden="true"></i> danielrr0713@gmail.com</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/daniel-rueda-ramirez-8a2963265/" target="_blank" rel="noreferrer" class="contact-bubble">
+                    <a href="https://www.linkedin.com/in/daniel-rueda-ramirez-8a2963265/" target="_blank" rel="noreferrer" class="contact-bubble" aria-label="View Daniel's LinkedIn profile (opens in new tab)">
                         <span class="bubble-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h4v16H4z"/><path d="M8 8h4v12H8z"/><path d="M8 10.5c0-1.38 1.12-2.5 2.5-2.5S13 9.12 13 10.5V10.5c0 1.38-1.12 2.5-2.5 2.5S8 11.88 8 10.5z"/><path d="M16 13.5v6.5h4v-7c0-2.1-1.7-3-3-3s-3 .9-3 3v.5"/></svg></span>
-                        <span><i class="bi bi-linkedin"></i> LinkedIn</span>
+                        <span><i class="bi bi-linkedin" aria-hidden="true"></i> LinkedIn</span>
                     </a>
-                    <a href="tel:+12404010249" class="contact-bubble">
+                    <a href="tel:+12404010249" class="contact-bubble" aria-label="Call Daniel at +1 240-401-0249">
                         <span class="bubble-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 2.75l4.1 4.1c.5.5.5 1.3 0 1.8l-2.5 2.5c-.4.4-1 .4-1.4 0l-1.5-1.5c-.3-.3-.7-.4-1.1-.3-.8.2-2.1.8-3.8 2.5-1.7 1.7-2.3 3-2.5 3.8-.1.4 0 .8.3 1.1l1.5 1.5c.4.4.4 1 0 1.4l-2.5 2.5c-.5.5-1.3.5-1.8 0L2.8 12c-.5-.5-.5-1.3 0-1.8l4.1-4.1c.5-.5 1.1-.7 1.7-.6 1.2.2 2.5.7 3.8 1.5.7.4 1.1 1.2 1.1 2.1 0 .4-.1.8-.3 1.2l-.8 1.5c-.1.2-.1.5 0 .7.1.2.3.4.5.5l1.5.8c.4.2.8.3 1.2.3 1 .1 1.7.4 2.1 1.1.8 1.3 1.3 2.6 1.5 3.8.1.6 0 1.2-.6 1.7z"/></svg></span>
-                        <span><i class="bi bi-telephone"></i> +1 240-401-0249</span>
+                        <span><i class="bi bi-telephone" aria-hidden="true"></i> +1 240-401-0249</span>
                     </a>
                 </div>
                 <div class="hero-download">
-                    <a href="assets/Daniel%20Rueda-Ramirez_Resume.pdf" download="Daniel-Rueda-Ramirez-Resume.pdf" target="_blank" rel="noreferrer" class="btn btn-primary">
+                    <a href="assets/Daniel%20Rueda-Ramirez_Resume.pdf" download="Daniel-Rueda-Ramirez-Resume.pdf" target="_blank" rel="noreferrer" class="btn btn-primary" aria-label="Download Daniel Rueda-Ramirez Resume PDF">
                         <i class="bi bi-download" aria-hidden="true"></i>  Download resume
                     </a>
                 </div>
@@ -1614,25 +1628,25 @@
                     <h2 class="contact-v2-heading">Let's Connect</h2>
                     <p class="contact-v2-subtext">Graduating May 2027. Actively pursuing full-time positions in management consulting and business analytics. Based near Washington D.C. but open to relocation.</p>
 
-                    <a href="mailto:danielrr0713@gmail.com" class="contact-link-btn">
-                        <i class="ti ti-mail"></i>
+                    <a href="mailto:danielrr0713@gmail.com" class="contact-link-btn" aria-label="Send email to danielrr0713@gmail.com">
+                        <i class="ti ti-mail" aria-hidden="true"></i>
                         danielrr0713@gmail.com
                     </a>
-                    <a href="tel:+12404010249" class="contact-link-btn">
-                        <i class="ti ti-phone"></i>
+                    <a href="tel:+12404010249" class="contact-link-btn" aria-label="Call Daniel at +1 240-401-0249">
+                        <i class="ti ti-phone" aria-hidden="true"></i>
                         +1 240-401-0249
                     </a>
-                    <a href="https://www.linkedin.com/in/daniel-rueda-ramirez-8a2963265/" target="_blank" rel="noreferrer" class="contact-link-btn">
-                        <i class="ti ti-brand-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/daniel-rueda-ramirez-8a2963265/" target="_blank" rel="noreferrer" class="contact-link-btn" aria-label="View Daniel's LinkedIn profile (opens in new tab)">
+                        <i class="ti ti-brand-linkedin" aria-hidden="true"></i>
                         LinkedIn
                     </a>
-                    <a href="https://github.com/druedara" target="_blank" rel="noreferrer" class="contact-link-btn">
-                        <i class="ti ti-brand-github"></i>
+                    <a href="https://github.com/druedara" target="_blank" rel="noreferrer" class="contact-link-btn" aria-label="View Daniel's GitHub profile (opens in new tab)">
+                        <i class="ti ti-brand-github" aria-hidden="true"></i>
                         GitHub
                     </a>
 
-                    <a href="assets/Daniel%20Rueda-Ramirez_Resume.pdf" download="Daniel-Rueda-Ramirez-Resume.pdf" target="_blank" rel="noreferrer" class="contact-resume-btn">
-                        <i class="ti ti-download"></i>
+                    <a href="assets/Daniel%20Rueda-Ramirez_Resume.pdf" download="Daniel-Rueda-Ramirez-Resume.pdf" target="_blank" rel="noreferrer" class="contact-resume-btn" aria-label="Download Daniel Rueda-Ramirez Resume PDF">
+                        <i class="ti ti-download" aria-hidden="true"></i>
                         Download Resume
                     </a>
                 </div>
@@ -1641,20 +1655,20 @@
                 <div class="contact-v2-right">
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
-                            <label class="form-label">Name</label>
-                            <input type="text" name="name" class="form-input" placeholder="Your name" required>
+                            <label class="form-label" for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Email</label>
-                            <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
+                            <label class="form-label" for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Organization</label>
-                            <input type="text" name="organization" class="form-input" placeholder="Company or university">
+                            <label class="form-label" for="organization">Organization</label>
+                            <input type="text" id="organization" name="organization" class="form-input" placeholder="Company or university">
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Message</label>
-                            <textarea name="message" class="form-textarea" rows="5" placeholder="What's on your mind?" required></textarea>
+                            <label class="form-label" for="message">Message</label>
+                            <textarea id="message" name="message" class="form-textarea" rows="5" placeholder="What's on your mind?" required></textarea>
                         </div>
                         <button type="submit" class="form-submit-btn">
                             Send Message <i class="ti ti-send"></i>
@@ -1673,7 +1687,7 @@
     </main>
 
     <!-- Scroll to Top Button -->
-    <div class="scroll-to-top" id="scrollToTop">↑</div>
+    <button type="button" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">↑</button>
 
     <!-- Footer -->
     <footer>
@@ -1686,13 +1700,15 @@
         const navLinks = document.querySelector('.nav-links');
 
         menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            const isExpanded = navLinks.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
         });
 
         // Close menu when a link is clicked
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
             });
         });
 
