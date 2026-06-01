@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Rueda-Ramirez</title>
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=JetBrains+Mono:wght@400;600&family=Fragment+Mono&display=swap" rel="stylesheet">
+
+    <!-- Tabler Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #060d1a;
+            --bg-surface: #0b1525;
+            --accent: #38bdf8;
+            --text-primary: #e0eaff;
+            --text-muted: #8faec6;
+            --border: rgba(56, 189, 248, 0.15);
+            --border-accent: rgba(56, 189, 248, 0.3);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Dot Grid Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: rgba(6, 13, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 232px;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a.contact-btn {
+            border: 1px solid var(--accent);
+            padding: 8px 20px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a.contact-btn:hover {
+            background-color: rgba(56, 189, 248, 0.1);
+        }
+
+        /* Responsive Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        main {
+            margin-top: 70px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 63px 232px 80px;
+            text-align: center;
+        }
+
+        .hero-header {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* Headshot row (centered circle with parallel lines) */
+        .headshot-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .headshot-line {
+            height: 2px;
+            background: var(--border-accent);
+            flex: 1 1 60px;
+            max-width: 130px;
+            border-radius: 2px;
+        }
+
+        .headshot-circle {
+            width: 160px;
+            height: 160px;
+            min-width: 160px;
+            border-radius: 999px;
+            background: var(--bg-surface);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .headshot-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .headshot-placeholder {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 6px;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            line-height: 1.1;
+            color: var(--text-primary);
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: var(--accent);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            line-height: 1.9;
+            max-width: 820px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-bubbles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            margin: 0 auto 48px;
+            max-width: 980px;
+        }
+
+        .hero-download {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0;
+        }
+
+        .hero-download .btn {
+            padding: 14px 34px;
+            font-weight: 700;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .contact-bubble {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: rgba(56, 189, 248, 0.14);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 15px;
+            font-weight: 600;
+            transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+        }
+
+        .contact-bubble:hover {
+            transform: translateY(-2px);
+            background: rgba(56, 189, 248, 0.22);
+            border-color: rgba(56, 189, 248, 0.35);
+        }
+
+        /* hide original inline SVG circle icons (we're using Bootstrap icons) */
+        .bubble-icon {
+            display: none;
+        }
+
+        /* Bootstrap icon appearance inside contact cards */
+        .contact-bubble i.bi {
+            font-size: 16px;
+            color: var(--text-primary);
+            line-height: 1;
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        .project-title i.bi {
+            font-size: 18px;
+            color: var(--text-primary);
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .hero-tools {
+            display: block;
+            margin: 0 auto;
+            max-width: 1080px;
+            text-align: left;
+        }
+
+        .tool-section-header {
+            margin-bottom: 20px;
+        }
+
+        .tool-section-title {
+            font-size: 34px;
+            font-weight: 900;
+            color: var(--text-primary);
+            margin: 0;
+            letter-spacing: 0.5px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 32px;
+            padding: 32px;
+            box-shadow: 0 28px 80px rgba(0, 0, 0, 0.22);
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            min-height: 260px;
+        }
+
+        .tool-category {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .tool-category-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: 0.35px;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+        }
+
+        .tool-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tool-card-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .tool-card-title span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tool-icon {
+            width: 52px;
+            height: 52px;
+            min-width: 52px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(255, 255, 255, 0.14));
+            border: 1px solid rgba(255,255,255,0.18);
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+        }
+
+        .tool-icon svg {
+            width: 26px;
+            height: 26px;
+            s<span class="tag">Linear Regression</span>ke: var(--accent);
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+
+        .tool-icon-inner {
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .tool-tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tool-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 9px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(56, 189, 248, 0.16);
+            background: rgba(56, 189, 248, 0.08);
+            color: var(--text-primary);
+            font-size: 13px;
+            font-family: 'JetBrains Mono', monospace;
+            white-space: nowrap;
+        }
+
+        .tool-tag.small {
+            font-size: 12px;
+            padding: 7px 12px;
+        }
+
+        .tool-card + .tool-card {
+            margin-top: 0;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            background: #60c7ff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(56, 189, 248, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* KPI Section */
+        .kpi-section {
+            padding: 80px 232px;
+            background: var(--bg-dark);
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .kpi-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .kpi-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(56, 189, 248, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .kpi-value {
+            font-size: 44px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .kpi-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 232px;
+            background: var(--bg-surface);
+            display: block;
+        }
+
+        .about-content {
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+        }
+
+        .about-text {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            max-width: none;
+        }
+
+        /* Education Section */
+        .education {
+            padding: 100px 232px;
+            background: var(--bg-surface);
+        }
+
+        .education-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 900px;
+        }
+
+        .education-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 28px;
+        }
+
+        .education-card-header,
+        .education-card-subheader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .education-card-header {
+            margin-bottom: 10px;
+        }
+
+        .education-card-gpa,
+        .education-card-degree {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        .education-card-date {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        .education-card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0;
+        }
+
+        .transcript-btn {
+            display: inline-flex;
+            width: auto;
+            margin: 22px auto 0;
+            justify-content: center;
+            padding: 10px 18px;
+        }
+
+        /* icon spacing for all buttons */
+        .btn i.bi {
+            margin-right: 8px;
+            color: inherit;
+            vertical-align: middle;
+        }
+
+        .education-card-text {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 100px 232px;
+            background: var(--bg-dark);
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 900px;
+        }
+
+        .project-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 12px 32px rgba(56, 189, 248, 0.15);
+        }
+
+        .project-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            margin-bottom: 16px;
+        }
+
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 3px;
+            border: 1px solid var(--border-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 16px;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* New Project Card Structure */
+        .project-section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin: 16px 0 8px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+        }
+
+        .project-section-content {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .project-downloads {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        .project-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 4px;
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .project-download-btn:hover {
+            background: rgba(56, 189, 248, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .project-download-btn i.bi {
+            font-size: 14px;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 100px 232px;
+            background: var(--bg-surface);
+        }
+        .skills-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0;
+        }
+
+        .skill-group {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .skill-group-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 0;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-pill {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: transform 0.18s ease, border-color 0.18s ease;
+        }
+
+        .skill-pill:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            background: rgba(56, 189, 248, 0.06);
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 100px 232px;
+            background: var(--bg-dark);
+        }
+
+        .experience-grid {
+            display: grid;
+            gap: 24px;
+            max-width: 1000px;
+        }
+
+        .experience-card {
+            background: var(--bg-surface);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+        }
+
+        .exp-card-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .exp-company-role {
+            display: grid;
+            gap: 6px;
+        }
+
+        .exp-company {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .exp-role {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .exp-date {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+            white-space: nowrap;
+        }
+
+        .exp-bullets {
+            list-style: disc;
+            margin: 0;
+            padding-left: 20px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .exp-bullets li {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.75;
+        }
+
+        .exp-intro {
+            font-size: 15px;
+            color: #8faec6;
+            line-height: 1.75;
+            margin-bottom: 18px;
+        }
+
+        /* Contact Section v2 */
+        .contact-v2 {
+            padding: 100px 232px;
+            background: var(--bg-dark);
+        }
+
+        .contact-v2-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: stretch;
+        }
+
+        .contact-v2-left,
+        .contact-v2-right {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-v2-label {
+            font-family: 'Fragment Mono', 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--accent);
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+
+        .contact-v2-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .contact-v2-subtext {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 32px;
+        }
+
+        .contact-link-btn {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            width: 100%;
+            padding: 13px 18px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 8px;
+            background: transparent;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .contact-link-btn:hover {
+            background: rgba(56, 189, 248, 0.08);
+            border-color: rgba(56, 189, 248, 0.45);
+        }
+
+        .contact-link-btn i {
+            font-size: 19px;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .contact-resume-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 13px 18px;
+            border-radius: 8px;
+            background: var(--accent);
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: auto;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .contact-resume-btn:hover {
+            background: #60c7ff;
+            transform: translateY(-2px);
+        }
+
+        .contact-resume-btn i {
+            font-size: 17px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-label {
+            font-family: 'Fragment Mono', 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-input,
+        .form-textarea {
+            background: var(--bg-surface);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 8px;
+            padding: 13px 16px;
+            color: var(--text-primary);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            outline: none;
+            width: 100%;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            font-family: 'Fragment Mono', 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: rgba(143, 174, 198, 0.45);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            border-color: rgba(56, 189, 248, 0.6);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .form-submit-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            width: 100%;
+            padding: 15px 24px;
+            border-radius: 8px;
+            background: var(--accent);
+            color: var(--bg-dark);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+            margin-top: auto;
+        }
+
+        .form-submit-btn:hover {
+            background: #60c7ff;
+            transform: translateY(-2px);
+        }
+
+        .form-submit-btn:disabled {
+            opacity: 0.55;
+            cursor: default;
+            transform: none;
+        }
+
+        .form-success,
+        .form-error {
+            display: none;
+            font-family: 'Fragment Mono', 'JetBrains Mono', monospace;
+            font-size: 13px;
+            padding: 14px 18px;
+            border-radius: 8px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .form-success {
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        .form-error {
+            color: #f87171;
+            border: 1px solid rgba(248, 113, 113, 0.3);
+            background: rgba(248, 113, 113, 0.05);
+        }
+
+        .form-success.visible,
+        .form-error.visible {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 40px 232px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links.active {
+                display: flex;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: rgba(6, 13, 26, 0.98);
+                backdrop-filter: blur(10px);
+                border-bottom: 1px solid var(--border);
+                padding: 20px;
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .kpi-section {
+                padding: 60px 20px;
+            }
+
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about {
+                flex-direction: column;
+                padding: 60px 20px;
+                gap: 40px;
+            }
+
+            .projects {
+                padding: 60px 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience {
+                padding: 60px 20px;
+            }
+
+            .contact-v2 {
+                padding: 60px 20px;
+            }
+
+            .contact-v2-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .contact-v2-heading {
+                font-size: 30px;
+            }
+
+            .project-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .project-title {
+                font-size: 18px;
+            }
+
+            .kpi-value {
+                font-size: 32px;
+            }
+
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll to top button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 44px;
+            height: 44px;
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid var(--border-accent);
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .scroll-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: rgba(56, 189, 248, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Daniel Rueda-Ramirez</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact" class="contact-btn">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-header">
+                <div class="headshot-row">
+                    <div class="headshot-line" aria-hidden="true"></div>
+                    <div class="headshot-circle">
+                        <!-- Replace the src with your headshot file (e.g. assets/headshot.jpg) -->
+                        <img src="assets/headshot.jpg" alt="Headshot" class="headshot-img" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
+                        <div class="headshot-placeholder">Image<br>in here</div>
+                    </div>
+                    <div class="headshot-line" aria-hidden="true"></div>
+                </div>
+                <h1>Daniel Rueda-Ramirez</h1>
+                <p class="hero-subtitle">Business Analyst · Systems Optimizer · Data Insights Translator</p>
+                <p class="hero-description">Honors Business Analytics and Impact Consulting student at the University of Notre Dame, passionate about leveraging cutting-edge data analytics and AI to optimize business operations and create value through innovation, with expertise in data management, process automation, consulting cases, and business operations.</p>
+                <div class="contact-bubbles">
+                    <a href="mailto:danielrr0713@gmail.com" class="contact-bubble">
+                        <span class="bubble-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7.5l8 5 8-5"/><path d="M4 16.5V7.5l8 5 8-5v9"/></svg></span>
+                        <span><i class="bi bi-envelope"></i> danielrr0713@gmail.com</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/daniel-rueda-ramirez-8a2963265/" target="_blank" rel="noreferrer" class="contact-bubble">
+                        <span class="bubble-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h4v16H4z"/><path d="M8 8h4v12H8z"/><path d="M8 10.5c0-1.38 1.12-2.5 2.5-2.5S13 9.12 13 10.5V10.5c0 1.38-1.12 2.5-2.5 2.5S8 11.88 8 10.5z"/><path d="M16 13.5v6.5h4v-7c0-2.1-1.7-3-3-3s-3 .9-3 3v.5"/></svg></span>
+                        <span><i class="bi bi-linkedin"></i> LinkedIn</span>
+                    </a>
+                    <a href="tel:+12404010249" class="contact-bubble">
+                        <span class="bubble-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 2.75l4.1 4.1c.5.5.5 1.3 0 1.8l-2.5 2.5c-.4.4-1 .4-1.4 0l-1.5-1.5c-.3-.3-.7-.4-1.1-.3-.8.2-2.1.8-3.8 2.5-1.7 1.7-2.3 3-2.5 3.8-.1.4 0 .8.3 1.1l1.5 1.5c.4.4.4 1 0 1.4l-2.5 2.5c-.5.5-1.3.5-1.8 0L2.8 12c-.5-.5-.5-1.3 0-1.8l4.1-4.1c.5-.5 1.1-.7 1.7-.6 1.2.2 2.5.7 3.8 1.5.7.4 1.1 1.2 1.1 2.1 0 .4-.1.8-.3 1.2l-.8 1.5c-.1.2-.1.5 0 .7.1.2.3.4.5.5l1.5.8c.4.2.8.3 1.2.3 1 .1 1.7.4 2.1 1.1.8 1.3 1.3 2.6 1.5 3.8.1.6 0 1.2-.6 1.7z"/></svg></span>
+                        <span><i class="bi bi-telephone"></i> +1 240-401-0249</span>
+                    </a>
+                </div>
+                <div class="hero-download">
+                    <a href="assets/Daniel%20Rueda-Ramirez_Resume.pdf" download="Daniel-Rueda-Ramirez-Resume.pdf" class="btn btn-primary">
+                        <i class="bi bi-download" aria-hidden="true"></i>  Download resume
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="about-content">
+                <h2 class="section-title">About</h2>
+                <p class="about-text">
+                    I am a motivated problem-solver who uses data and AI-driven strategies to drive efficiency and informed decision-making.
+                </p>
+                <p class="about-text">
+                    With a background in Business Analytics and Impact Consulting at the University of Notre Dame, I work as a technical optimizer and data insights translator, improving every system I touch and breaking down complex analysis into actionable solutions for non-technical audiences.
+                </p>
+                <p class="about-text">
+                    At Verso Ministries, I reduced logistics documentation time by 20% by automating processes with spreadsheet functions, AI, and backend JavaScript. I also synthesized 10 years of customer data in Python to drive targeted outreach strategy, and engineered a data-driven market entry strategy into the African continent by scraping and benchmarking destination management companies.
+                </p>
+                <p class="about-text">
+                    With experience presenting insights directly to Founder/CEOs and competing in consulting case competitions for firms including Deloitte, KPMG, and DaVita, I’m eager to bring my process optimization and analytics skills to innovative, mission-driven organizations where I can improve systems and create meaningful, scalable impact.
+                </p>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="experience" id="experience">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-grid">
+                <article class="experience-card">
+                    <div class="exp-card-header">
+                        <div class="exp-company-role">
+                            <div class="exp-company">Verso Ministries | Notre Dame, IN</div>
+                            <div class="exp-role">Operations Intern</div>
+                        </div>
+                        <div class="exp-date">Aug 2025 – Present</div>
+                    </div>
+                    <p class="exp-intro">Verso Ministries organizes Catholic pilgrimages for 1,000+ global travelers, with various standard and custom itineraries across five continents, coordinating trip logistics on behalf of trip leaders with Destination Management Companies. As an operations intern, I sit at the intersection of data infrastructure, process optimization, and client-facing logistics, building the systems that keep complex international travel operations running reliably.</p>
+                    <ul class="exp-bullets">
+                        <li>Manage sensitive datasets integrating traveler flight, health, and passport information for international DMCs, ensuring data integrity across a high-stakes, compliance-sensitive operation</li>
+                        <li>Identified critical friction points in documentation workflows and engineered SOPs that reduced documentation time by 20%, creating consistency across all 100+ trip offerings for both the Verso team and our pilgrims.</li>
+                        <li>Synthesized 10 years of disparate customer data from multiple sources using Python to build a targeted outreach strategy for the company’s older customer segment, driving a personalized approach to customer engagement and retention.</li>
+                        <li>Engineered a data-driven market entry strategy into the African continent by scraping, cleaning, and benchmarking DMC service offerings across the region, driving informed decision-making for new business partnerships and widening the company's global footprint.</li>
+                        <li>Automated manual documentation processes using spreadsheet functions, backend JavaScript, and Google Gemini to replace manual processes across the operations workflow</li>
+                        <li>Maintained a 100% ticket resolution rate in HubSpot CRM within a 24-hour SLA across all customer inquiries.</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Google AppsScript</span>
+                        <span class="tag">Web Scraping</span>
+                        <span class="tag">Workflow Optimization</span>
+                        <span class="tag">HubSpot CRM</span>
+                        <span class="tag">SOP Development</span>
+                    </div>
+                </article>
+                <article class="experience-card">
+                    <div class="exp-card-header">
+                        <div class="exp-company-role">
+                            <div class="exp-company">Confidential Hedge Fund | Bethesda, MD</div>
+                            <div class="exp-role">Research & Analytics Intern</div>
+                        </div>
+                        <div class="exp-date">Jul – Aug 2025</div>
+                    </div>
+                    <p class="exp-intro">Embedded within a boutique Bethesda hedge fund for a two-month engagement, I built data infrastructure and research pipelines to inform investment decisions for senior staff. The role was fast-paced and output-driven, with findings presented directly to investment leadership within days of completion.</p>
+                    <ul class="exp-bullets">
+                        <li>Translated complex data analysis and industry research into 4 comprehensive reports, presenting actionable investment insights to senior staff across 3 executive briefings</li>
+                        <li>Developed Python scripts to scrape and process bulk financial data at scale, storing structured results in MongoDB to automate and accelerate the firm’s decision-making pipeline</li>
+                        <li>Architected web-scraping tools to systematically extract critical metadata from financial news sources and industry publications, dramatically reducing the time required to surface accurate market intelligence</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">Web Scraping</span>
+                        <span class="tag">Financial Research</span>
+                        <span class="tag">Executive Communication</span>
+                    </div>
+                </article>
+                <article class="experience-card">
+                    <div class="exp-card-header">
+                        <div class="exp-company-role">
+                            <div class="exp-company">Dietrich Logistics | Bogotá, Colombia</div>
+                            <div class="exp-role">Accounting & Sales Research Intern</div>
+                        </div>
+                        <div class="exp-date">Jul – Aug 2024</div>
+                    </div>
+                    <p class="exp-intro">Dietrich Logistics is an international freight and logistics company based in Bogotá, Colombia, operating with a global footprint across four continents. This internship was conducted entirely in Spanish within a Colombian business environment, combining accounting operations, ERP data management, and market research to support the company’s expansion into southern Asia.</p>
+                    <ul class="exp-bullets">
+                        <li>Conducted data-driven market research to identify and qualify hundreds of potential logistics providers across southern Asia, directly supporting an international business expansion initiative</li>
+                        <li>Logged and audited 80+ international shipping transactions within the company’s ERP system, ensuring high data accuracy across cross-border financial records</li>
+                        <li>Revised the company’s account plan and streamlined international record-keeping workflows, improving organizational efficiency across the accounting function</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">ERP Systems</span>
+                        <span class="tag">Market Research</span>
+                        <span class="tag">International Logistics</span>
+                        <span class="tag">Excel</span>
+                        <span class="tag">Spanish</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="education" id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="education-card-header">
+                        <div class="education-card-title">University of Notre Dame</div>
+                        <div class="education-card-date">August 2023 - May 2027</div>
+                    </div>
+                    <div class="education-card-subheader" style="margin-bottom: 14px;">
+                        <div class="education-card-degree">Bachelor in Business Administration</div>
+                        <div class="education-card-gpa">GPA: 3.64</div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Major: Business Analytics</li>
+                        <li>Minors: Business Honors Program, Impact Consulting, Liturgical Music Ministry, and Theology</li>
+                    </ul>
+                    <a href="assets/Notre-Dame-Transcript.pdf" class="project-download-btn transcript-btn" target="_blank" rel="noreferrer"><i class="bi bi-download" aria-hidden="true"></i> Download Unofficial Academic Transcript</a>
+                </div>
+                <div class="education-card">
+                    <div class="education-card-header">
+                        <div class="education-card-title">The Heights School</div>
+                        <div class="education-card-date">Sept. 2019 - June 2023</div>
+                    </div>
+                    <div class="education-card-subheader" style="margin-bottom: 14px;">
+                        <div class="education-card-degree">High School Diploma</div>
+                        <div class="education-card-gpa">GPA: 3.98</div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Wrote and presented 50 page senior thesis titled "Overcoming Smartphone Addiction"</li>
+                        <li>AP Scholar with Distinction</li>
+                    </ul>
+                    <a href="assets/Heights-Transcript.pdf" class="project-download-btn transcript-btn" target="_blank" rel="noreferrer"><i class="bi bi-download" aria-hidden="true"></i> Download Academic Transcript</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects" id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1: United Airlines Consulting Project -->
+                <div class="project-card">
+                    <div class="project-title">United Airlines Consulting Project</div>
+                    
+                    <div class="project-section-label">Context</div>
+                    <p class="project-section-content">Solo consulting project for a business problem solving class analyzing United Airlines' customer satisfaction crisis amid its "United Next" expansion strategy. This presentation was prepared as a strategic recommendation for United CEO Scott Kirby and COO Brett Hart.</p>
+                    
+                    <div class="project-section-label">Problem</div>
+                    <p class="project-section-content">United's aggressive scheduling at core hubs like ORD and EWR pushed on-time performance below 70%, with each delay costing 16 NPS points per passenger. With the FAA implementing flight caps at the world's busiest airports, how can United mitigate the customer satisfaction damage that each delay causes, and what is the financial case for doing so?</p>
+                    
+                    <div class="project-section-label">Approach</div>
+                    <p class="project-section-content">Built a full consulting engagement from the ground up. Developed a comprehensive fact pack covering United's competitive position, operational performance at core hubs, financial trajectory, and customer satisfaction benchmarks relative to Delta and Southwest. Conducted a PESTEL analysis and structured an issue tree to identify the highest-leverage intervention points. Used Bain & Co. NPS driver research, JD Power customer satisfaction data, Airlines for America delay cost benchmarks, BTS flight data, FAA operational records, and DOT enforcement data to build the evidentiary foundation. Designed a three-phase implementation timeline spanning June 2026 to May 2029, and built a detailed five-line-item P&L model projecting costs and returns across platform build, delay cost savings, cancellation avoidance, call-center deflection, and NPS retention lift.p>
+                    
+                    <div class="project-section-label">Key Findings & Recommendation</div>
+                    <p class="project-section-content">Proposed <i>ClearPath</i> — an AI-powered United app feature that proactively flags flights with high delay probability, notifies passengers before they leave home, and enables free rebooking in under one minute. <i>ClearPath</i> directly addresses the two primary NPS destroyers: untimely notification and slow rebooking, resulting in projected +10 NPS per customer and $608M in savings by Year 3. A three-phase rollout was designed beginning with ML model training on BTS and ASPM delay data, piloting, and then scaling. Key risks identified include AI system overload, union resistance, and slower-than-projected NPS recovery — each with specific mitigants.</p>
+                    
+                    <div class="project-tags">
+                        <span class="tag">Consulting</span>
+                        <span class="tag">Executive Communication</span>
+                        <span class="tag">Financial Modeling</span>
+                        <span class="tag">Industry Research</span>
+                        <span class="tag">KPI Identification</span>
+                        <span class="tag">Structured Problem Solving</span>
+                        <span class="tag">Presentation Design</span>
+                        <span class="tag">App Mockup</span>
+                        <span class="tag">Canva</span>
+                        <span class="tag">UX Pilot</span>
+                    </div>
+                    
+                    <div class="project-downloads">
+                        <a href="assets/United-Airlines-Memo.pdf" download="United-Airlines-Memo.pdf" class="project-download-btn"><i class="bi bi-download"></i> Download Memo</a>
+                        <a href="assets/United-Airlines-Slidedeck.pdf" download="United-Airlines-Slidedeck.pdf" class="project-download-btn"><i class="bi bi-download"></i> Download Slide Deck</a>
+                        <a href="assets/United-Airlines-Toolkit.pdf" download="United-Airlines-Toolkit.pdf" class="project-download-btn"><i class="bi bi-download"></i> Download Toolkit</a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Tropicana Pricing Case -->
+                <div class="project-card">
+                    <div class="project-title">Tropicana: Retail Pricing & Merchandising Optimization Analysis</div>
+                    
+                    <div class="project-section-label">Context</div>
+                    <p class="project-section-content">Pricing analytics case study for Jewel, a high-low grocery retailer, that was evaluating whether to reduce its promotional reliance on Tropicana 12oz frozen orange juice after profits dropped from $233,075 in 2016 to $139,237 in 2017 despite a surge in units sold. The CEO was concerned the store had gone too far with promotions. This analysis was prepared for Debabrata Chakravarti, Jewel's head merchant, to present to CEO Stephen Gray.</p>
+                    
+                    <div class="project-section-label">Problem</div>
+                    <p class="project-section-content">Jewel's promotional strategy for Tropicana shifted dramatically across three years, with deep, frequent promotions in 2017 boosting volume but cratering margins, and a pullback in 2018 recovering profits but sacrificing units sold. The central question centered around understanding what promotion frequency and depth would maximize Jewel's profitability for Tropicana in 2019 and whether aproposed alternative scenario of more frequent, deeper promotions outperform the 2018 baseline.</p>
+                    
+                    <div class="project-section-label">Approach</div>
+                    <p class="project-section-content">Analyzed three years of weekly point-of-sale data across four retail price zones (High, Medium, Low, CubFighter) using R. Built a log-log regression model with interaction terms for merchandising, price zone, and year to isolate the individual and combined effects of price and merchandising on units sold. Identified and removed a statistically anomalous outlier at week 124 using IQR analysis. Ran a scenario analysis comparing 2018 actual profits against a proposed Scenario 1 featuring more frequent and deeper price promotions.</p>
+                    
+                    <div class="project-section-label">Key Findings & Recommendation</div>
+                    <p class="project-section-content">The regression model revealed a baseline price elasticity of −2.8, meaning consumers are moderately price sensitive. That sensitivity nearly doubles during merchandising weeks, with a 4.02× sales multiplier and a combined elasticity of −3.976. Scenario 1 generated $17,311 less profit than the 2018 baseline ($104,342 vs. $121,653), confirming that deeper promotions cut too far into margins without proportionally compensating through volume. I recommend that Jewel should offer more frequent but shallower price promotions, always paired with merchandising, to capture the 4.02× volume multiplier while protecting profit margins. This middle-ground strategy outperforms both the 2017 deep-discount approach and the proposed Scenario 1.</p>
+                    
+                    <div class="project-tags">
+                        <span class="tag">R</span>
+                        <span class="tag">ggplot2</span>
+                        <span class="tag">Linear Regression</span>
+                        <span class="tag">Log-Log Modeling</span>
+                        <span class="tag">Scenario Analysis</span>
+                        <span class="tag">Outlier Detection</span>
+                        <span class="tag">Pricing Strategy</span>
+                        <span class="tag">Data Visualization</span>
+                        <span class="tag">Managerial Reporting</span>
+                    </div>
+                    
+                    <div class="project-downloads">
+                        <a href="assets/Tropicana-Merchandising-Analysis.pdf" download="Tropicana-Merchandising-Analysis.pdf" class="project-download-btn"><i class="bi bi-download"></i> Download Report</a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Delta Airlines Dashboard -->
+                <div class="project-card">
+                    <div class="project-title">Delta Airlines: Flight Delay Performance Dashboard</div>
+                    
+                    <div class="project-section-label">Context</div>
+                    <p class="project-section-content">Operational analytics dashboard built to benchmark Delta Airlines' flight delay patterns across routes, hubs, and delay categories. The route and delay cause analysis from this dashboard laid the foundation for the subsequent United Airlines consulting project.</p>
+                    
+                    <div class="project-section-label">Problem</div>
+                    <p class="project-section-content">Delay data in its raw form is voluminous and difficult to interpret, with thousands of rows of flight records across hundreds of routes, dozens of airports, and multiple delay cause categories. This project sought to understand how delay patterns distribute across Delta's hub network and what the anatomy of a delay look like in terms of cause and cascade.</p>
+                    
+                    <div class="project-section-label">Approach</div>
+                    <p class="project-section-content">Sourced flight delay data from the Bureau of Transportation Statistics and built an interactive dashboard in Microsoft PowerBI using DAX measures to calculate on-time performance rates, average delay minutes, and delay cause breakdowns by hub, route, month, and delay category. Structured the dashboard around three analytical layers: hub-level OTP benchmarking, delay cause decomposition (carrier-caused, NAS, weather, late aircraft, security), and reactionary delay chain analysis, examining how an initial delay propagates through a hub's daily operation as late aircraft trigger cascading downstream delays. Particular attention was paid to the late aircraft category, which accounts for approximately 40% of all delay minutes industry-wide and is the primary driver of the reactionary delay domino effect.</p>
+                    
+                    <div class="project-section-label">Key Findings & Recommendation</div>
+                    <p class="project-section-content">The dashboard allows the user to focus on specific hubs and route types, particularly short-haul high-frequency corridors where reactionary delays compound most aggressively. Late aircraft delays are the single largest controllable delay category, reinforcing the subsequent United Airlines project thesis that proactive delay prediction and early passenger notification is the highest-leverage intervention available to an airline. The dashboard provides the competitive benchmarking foundation for understanding what operational excellence in delay management must entail.</p>
+                    
+                    <div class="project-tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">DAX</span>
+                        <span class="tag">BTS Data</span>
+                        <span class="tag">Operations Analytics</span>
+                        <span class="tag">Data Visualization</span>
+                    </div>
+                    
+                    <div class="project-downloads">
+                        <a href="assets/Delta-Flight-Delay-Dashboard.pbix" download="Delta-Flight-Delay-Dashboard.pbix" class="project-download-btn"><i class="bi bi-download"></i> Download Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills" id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="projects-grid skills-grid">
+                <div class="project-card">
+                    <div class="project-title"><i class="bi bi-database" aria-hidden="true"></i> Data & Analytics</div>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">R</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">Excel</span>
+                        <span class="tag">Web Scraping</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title"><i class="bi bi-bar-chart-line-fill" aria-hidden="true"></i> Visualization & Development</div>
+                    <div class="project-tags">
+                        <span class="tag">Tableau Desktop</span>
+                        <span class="tag">Microsoft PowerBI</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">GitHub</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title"><i class="bi bi-robot" aria-hidden="true"></i> AI & Automation</div>
+                    <div class="project-tags">
+                        <span class="tag">AI Workflow Automation</span>
+                        <span class="tag">Generative AI Prompting</span>
+                        <span class="tag">Claude Code</span>
+                        <span class="tag">Gemini Deep Research</span>
+                        <span class="tag">GitHub Copilot</span>
+                        <span class="tag">Google AppsScript</span>
+                        <span class="tag">NotebookLM</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title"><i class="bi bi-briefcase" aria-hidden="true"></i> Enterprise Tools</div>
+                    <div class="project-tags">
+                        <span class="tag">HubSpot CRM</span>
+                        <span class="tag">Microsoft Office</span>
+                        <span class="tag">Google Workspace</span>
+                        <span class="tag">Zoom Workspace</span>
+                        <span class="tag">Canva</span>
+                        <span class="tag">Slack</span>
+                        <span class="tag">WordPress</span>
+                        <span class="tag">YouLi</span>
+                        <span class="tag">Asana</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title"><i class="bi bi-globe" aria-hidden="true"></i> Languages</div>
+                    <div class="project-tags">
+                        <span class="tag">English (Fluent)</span>
+                        <span class="tag">Spanish (Fluent)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-v2" id="contact">
+            <div class="contact-v2-grid">
+
+                <!-- Left Column -->
+                <div class="contact-v2-left">
+                    <h2 class="contact-v2-heading">Let's Connect</h2>
+                    <p class="contact-v2-subtext">Graduating May 2027. Actively pursuing full-time positions in management consulting and business analytics. Based near Washington D.C. but open to relocation.</p>
+
+                    <a href="mailto:danielrr0713@gmail.com" class="contact-link-btn">
+                        <i class="ti ti-mail"></i>
+                        danielrr0713@gmail.com
+                    </a>
+                    <a href="tel:+12404010249" class="contact-link-btn">
+                        <i class="ti ti-phone"></i>
+                        +1 240-401-0249
+                    </a>
+                    <a href="https://www.linkedin.com/in/daniel-rueda-ramirez-8a2963265/" target="_blank" rel="noreferrer" class="contact-link-btn">
+                        <i class="ti ti-brand-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/druedara" target="_blank" rel="noreferrer" class="contact-link-btn">
+                        <i class="ti ti-brand-github"></i>
+                        GitHub
+                    </a>
+
+                    <a href="assets/Daniel%20Rueda-Ramirez_Resume.pdf" download="Daniel-Rueda-Ramirez-Resume.pdf" class="contact-resume-btn">
+                        <i class="ti ti-download"></i>
+                        Download Resume
+                    </a>
+                </div>
+
+                <!-- Right Column -->
+                <div class="contact-v2-right">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label class="form-label">Name</label>
+                            <input type="text" name="name" class="form-input" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Organization</label>
+                            <input type="text" name="organization" class="form-input" placeholder="Company or university">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea name="message" class="form-textarea" rows="5" placeholder="What's on your mind?" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit-btn">
+                            Send Message <i class="ti ti-send"></i>
+                        </button>
+                        <div class="form-success" id="formSuccess">
+                            Message sent — I'll be in touch soon.
+                        </div>
+                        <div class="form-error" id="formError">
+                            Something went wrong. Please try emailing directly.
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" id="scrollToTop">↑</div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Daniel Rueda-Ramirez. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll to Top Button
+        const scrollToTop = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTop.classList.add('active');
+            } else {
+                scrollToTop.classList.remove('active');
+            }
+        });
+
+        scrollToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const btn = this.querySelector('.form-submit-btn');
+            const success = document.getElementById('formSuccess');
+            const error = document.getElementById('formError');
+            const originalHTML = btn.innerHTML;
+
+            btn.disabled = true;
+            btn.innerHTML = 'Sending…';
+
+            try {
+                const res = await fetch('https://formspree.io/f/mjgznbky', {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (res.ok) {
+                    this.reset();
+                    success.style.display = 'block';
+                    requestAnimationFrame(() => success.classList.add('visible'));
+                } else {
+                    throw new Error();
+                }
+            } catch (_) {
+                error.style.display = 'block';
+                requestAnimationFrame(() => error.classList.add('visible'));
+                btn.disabled = false;
+                btn.innerHTML = originalHTML;
+            }
+        });
+    </script>
+</body>
+</html>
