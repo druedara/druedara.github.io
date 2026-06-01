@@ -1752,7 +1752,7 @@
             toast.innerHTML = icon + '<span>' + html + '</span>';
             document.body.appendChild(toast);
             requestAnimationFrame(() => requestAnimationFrame(() => toast.classList.add('visible')));
-            const duration = type === 'success' ? 4000 : 6000;
+            const duration = type === 'success' ? 4000 : 8000;
             setTimeout(() => {
                 toast.classList.remove('visible');
                 toast.addEventListener('transitionend', () => toast.remove(), { once: true });
