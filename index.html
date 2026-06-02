@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- REPLACE G-XXXXXXXXXX WITH YOUR ACTUAL GA4 MEASUREMENT ID FROM analytics.google.com BEFORE PUSHING TO PRODUCTION -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Rueda-Ramirez</title>
-    <meta name="description" content="Professional portfolio of Daniel Rueda-Ramirez, an Honors Business Analytics and Impact Consulting student at the University of Notre Dame specializing in data analytics, predictive modeling, and operational strategy.">
+    <meta name="description" content="Portfolio of Daniel Rueda-Ramirez — Business Analytics and Impact Consulting student at Notre Dame specializing in data analytics, predictive modeling, operational strategy, and management consulting. Experienced in Python, SQL, R, PowerBI, Tableau, and machine learning.">
     <meta name="author" content="Daniel Rueda-Ramirez">
-    <meta name="keywords" content="Daniel Rueda-Ramirez, Business Analytics, Impact Consulting, Notre Dame, data analytics, predictive modeling, operational strategy, portfolio">
+    <meta name="keywords" content="Daniel Rueda-Ramirez, Business Analytics, Impact Consulting, Notre Dame, management consulting, data analytics, predictive modeling, Python, SQL, R, PowerBI, Tableau, machine learning, operational strategy, business intelligence, data science">
     <link rel="canonical" href="https://druedara.github.io/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://druedara.github.io/">
     <meta property="og:title" content="Daniel Rueda-Ramirez | Business Analytics & Consulting">
-    <meta property="og:description" content="Honors Business Analytics and Impact Consulting student at the University of Notre Dame specializing in data analytics, predictive modeling, and operational strategy.">
+    <meta property="og:description" content="Portfolio of Daniel Rueda-Ramirez — Business Analytics and Impact Consulting student at Notre Dame specializing in data analytics, predictive modeling, operational strategy, and management consulting. Experienced in Python, SQL, R, PowerBI, Tableau, and machine learning.">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Daniel Rueda-Ramirez | Business Analytics & Consulting">
-    <meta name="twitter:description" content="Honors Business Analytics and Impact Consulting student at the University of Notre Dame specializing in data analytics, predictive modeling, and operational strategy.">
+    <meta name="twitter:description" content="Portfolio of Daniel Rueda-Ramirez — Business Analytics and Impact Consulting student at Notre Dame specializing in data analytics, predictive modeling, operational strategy, and management consulting. Experienced in Python, SQL, R, PowerBI, Tableau, and machine learning.">
     
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -395,7 +403,7 @@
         .tool-icon svg {
             width: 26px;
             height: 26px;
-            s<span class="tag">Linear Regression</span>ke: var(--accent);
+            stroke: var(--accent);
             stroke-width: 1.8;
             stroke-linecap: round;
             stroke-linejoin: round;
@@ -562,6 +570,12 @@
             border: 1px solid var(--border);
             border-radius: 6px;
             padding: 28px;
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 12px 32px rgba(56, 189, 248, 0.15);
         }
 
         .education-card-header,
@@ -689,6 +703,12 @@
 
         .project-title-row .project-title {
             margin-bottom: 0;
+        }
+
+        .project-title-row .tag-in-development {
+            flex-shrink: 0;
+            white-space: nowrap;
+            align-self: flex-start;
         }
 
         .project-stats {
@@ -839,6 +859,12 @@
             border-radius: 20px;
             padding: 32px;
             box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 12px 32px rgba(56, 189, 248, 0.15);
         }
 
         .exp-card-header {
@@ -894,6 +920,9 @@
             content: "→";
             position: absolute;
             left: 0;
+            top: 0;
+            font-size: 1rem;
+            line-height: 1.75;
             color: var(--accent);
             font-family: 'Fragment Mono', 'JetBrains Mono', monospace;
             margin-right: 12px;
@@ -1324,7 +1353,7 @@
                 <div class="headshot-row">
                     <div class="headshot-line" aria-hidden="true"></div>
                     <div class="headshot-circle">
-                        <img src="assets/headshot.jpg" alt="Daniel Rueda-Ramirez headshot" class="headshot-img" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
+                        <img src="assets/headshot.jpg" alt="Daniel Rueda-Ramirez — Business Analytics and Impact Consulting student at the University of Notre Dame" class="headshot-img" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
                         <div class="headshot-placeholder" aria-hidden="true">Image<br>in here</div>
                     </div>
                     <div class="headshot-line" aria-hidden="true"></div>
@@ -1379,6 +1408,27 @@
         <section class="experience" id="experience">
             <h2 class="section-title">Experience</h2>
             <div class="experience-grid">
+                <article class="experience-card">
+                    <div class="exp-card-header">
+                        <div class="exp-company-role">
+                            <div class="exp-company">Dhiyasoft LLC | Wayne, NJ</div>
+                            <div class="exp-role">App Developer Intern</div>
+                        </div>
+                        <div class="exp-date">Jun – Aug 2026</div>
+                    </div>
+                    <p class="exp-intro">Dhiyasoft LLC is a software development company based in Wayne, New Jersey. Reporting directly to founder Sriram Srinivasan, this role focuses on full-stack app development, feature verification, debugging, and professional documentation within an agile development environment.</p>
+                    <ul class="exp-bullets">
+                        <li>Supporting the creation and verification of new application features, identifying and resolving software issues through structured debugging and code review</li>
+                        <li>Collaborating with development team on project execution, participating in formal code reviews and professional project discussions</li>
+                        <li>Maintaining project transparency through documentation updates and regular progress reports across all assigned development tasks</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span class="tag">App Development</span>
+                        <span class="tag">Code Review</span>
+                        <span class="tag">Software Documentation</span>
+                        <span class="tag">Development Frameworks</span>
+                    </div>
+                </article>
                 <article class="experience-card">
                     <div class="exp-card-header">
                         <div class="exp-company-role">
@@ -1455,10 +1505,10 @@
         <section class="education" id="education">
             <h2 class="section-title">Education</h2>
             <div class="education-grid">
-                <div class="education-card">
+                <article class="education-card">
                     <div class="education-card-header">
                         <div class="education-card-title">University of Notre Dame</div>
-                        <div class="education-card-date">August 2023 - May 2027</div>
+                        <div class="education-card-date">Aug 2023 - May 2027</div>
                     </div>
                     <div class="education-card-subheader" style="margin-bottom: 14px;">
                         <div class="education-card-degree">Bachelor in Business Administration</div>
@@ -1481,11 +1531,11 @@
                         <span class="tag">Unstructured Data Analytics</span>
                     </div>
                     <a href="assets/Notre-Dame-Transcript.pdf" download="Notre-Dame-Transcript.pdf" class="project-download-btn transcript-btn" target="_blank" rel="noreferrer"><i class="bi bi-download" aria-hidden="true"></i> Download Unofficial Academic Transcript</a>
-                </div>
-                <div class="education-card">
+                </article>
+                <article class="education-card">
                     <div class="education-card-header">
                         <div class="education-card-title">The Heights School</div>
-                        <div class="education-card-date">Sept. 2019 - June 2023</div>
+                        <div class="education-card-date">Sept 2019 - June 2023</div>
                     </div>
                     <div class="education-card-subheader" style="margin-bottom: 14px;">
                         <div class="education-card-degree">High School Diploma</div>
@@ -1496,7 +1546,7 @@
                         <li>AP Scholar with Distinction</li>
                     </ul>
                     <a href="assets/Heights-Transcript.pdf" download="Heights-Transcript.pdf" class="project-download-btn transcript-btn" target="_blank" rel="noreferrer"><i class="bi bi-download" aria-hidden="true"></i> Download Academic Transcript</a>
-                </div>
+                </article>
             </div>
         </section>
 
@@ -1505,7 +1555,7 @@
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
                 <!-- Project 1: United Airlines Consulting Project -->
-                <div class="project-card">
+                <article class="project-card">
                     <div class="project-title">United Airlines Consulting Project</div>
                     
                     <div class="project-section-label">Context</div>
@@ -1538,26 +1588,26 @@
                         <a href="assets/United-Airlines-Slidedeck.pdf" download="United-Airlines-Slidedeck.pdf" target="_blank" rel="noreferrer" class="project-download-btn"><i class="bi bi-download"></i> Download Slide Deck</a>
                         <a href="assets/United-Airlines-Toolkit.pdf" download="United-Airlines-Toolkit.pdf" target="_blank" rel="noreferrer" class="project-download-btn"><i class="bi bi-download"></i> Download Toolkit</a>
                     </div>
-                </div>
+                </article>
 
                 <!-- Project 2: FlightSense -->
-                <div class="project-card">
+                <article class="project-card">
                     <div class="project-title-row">
-                        <div class="project-title">FlightSense: Intelligent Flight Tracking &amp; Delay Intelligence Platform</div>
+                        <div class="project-title">FlightSense: Flight Tracking &amp; Delay Intelligence Platform</div>
                         <span class="tag tag-in-development">In Development</span>
                     </div>
 
                     <div class="project-section-label">Context</div>
-                    <p class="project-section-content">A solo full-stack personal project built to solve a real problem — keeping tabs on multiple upcoming flights across different trips without manually checking airline apps. FlightSense is a Python-based flight tracking platform with a live data pipeline, persistent database, and an interactive user dashboard. Currently in active development with a machine learning delay prediction layer and automated email notifications planned as next phases.</p>
+                    <p class="project-section-content">A solo full-stack personal project built to help travelers book flights at their price floor. FlightSense is a Python-based flight tracking platform with a live data pipeline, persistent database, and an interactive user dashboard. Currently in active development with a machine learning delay prediction layer and automated email notifications planned as next phases.</p>
 
                     <div class="project-section-label">Problem</div>
-                    <p class="project-section-content">Travelers managing multiple upcoming flights across different itineraries have no centralized, automatically-updating tool that aggregates their flight data in one place and surfaces delay risk proactively. Existing airline apps are siloed by carrier, don't update automatically, and offer no predictive intelligence about delay likelihood.</p>
+                    <p class="project-section-content">Travelers currently rely on their own methods for predicting flight prices, which are constantly fluctuating. Additionally, those managing multiple upcoming flights across different itineraries have no centralized, automatically-updating tool that aggregates their flight data in one place. This lack of visibility makes it difficult for travelers book more affordable flights and manage their travel plans effectively.</p>
 
                     <div class="project-section-label">Approach</div>
-                    <p class="project-section-content">Built a full-stack application in Python with embedded HTML for the user interface. Implemented a dual-source flight data scraping pipeline using fast-flights as the primary source and SerpAPI as a fallback, with flights refreshing automatically every few hours. All flight data is stored and managed in a PostgreSQL database. The user interface allows travelers to create trips, add flights to each trip, and view a live dashboard tracking the status of all upcoming flights across all itineraries.</p>
+                    <p class="project-section-content">Built a full-stack application in Python with embedded HTML for the user interface. Implemented a dual-source flight data scraping pipeline using fast-flights as the primary source and SerpAPI as a fallback, with flights refreshing automatically every few hours. All flight data is stored and managed in a PostgreSQL database. The user interface allows travelers to create trips, add flights to each trip, and view a live dashboard tracking the status of all upcoming flights across all itineraries. A machine learning model will be used to predict when a flight is likely to be priced at its floor, and an automated email notification system will be implemented to alert users when their flight is predicted to be at its price floor.</p>
 
                     <div class="project-section-label">Current Status &amp; Roadmap</div>
-                    <p class="project-section-content"><strong>Phase 1 (complete):</strong> Live flight tracking dashboard with PostgreSQL-backed data pipeline and automatic refresh.<br><strong>Phase 2 (in development):</strong> Machine learning delay prediction model trained on historical BTS flight delay data to flag high-risk flights before departure.<br><strong>Phase 3 (planned):</strong> Automated email notification system to alert users when a tracked flight crosses a delay risk threshold.</p>
+                    <p class="project-section-content"><strong>Phase 1 (almost complete):</strong> Live flight tracking dashboard with PostgreSQL-backed data pipeline and automatic refresh.<br><strong>Phase 2 (planned):</strong> Machine learning delay prediction model trained on historical BTS flight delay data to flag high-risk flights before departure.<br><strong>Phase 3 (planned):</strong> Automated email notification system to alert users when a tracked flight crosses a delay risk threshold.</p>
 
                     <div class="project-tags">
                         <span class="tag">Python</span>
@@ -1574,10 +1624,10 @@
                     <div class="project-downloads">
                         <a href="#contact" class="project-download-btn">Interested in FlightSense? Let's talk!</a>
                     </div>
-                </div>
+                </article>
 
                 <!-- Project 3: Tropicana Pricing Case -->
-                <div class="project-card">
+                <article class="project-card">
                     <div class="project-title">Tropicana Retail Pricing & Merchandising Optimization Analysis</div>
                     
                     <div class="project-section-label">Context</div>
@@ -1607,10 +1657,10 @@
                     <div class="project-downloads">
                         <a href="assets/Tropicana-Merchandising-Analysis.pdf" download="Tropicana-Merchandising-Analysis.pdf" target="_blank" rel="noreferrer" class="project-download-btn"><i class="bi bi-download"></i> Download Report</a>
                     </div>
-                </div>
+                </article>
 
-                <!-- Project 3: Delta Airlines Dashboard -->
-                <div class="project-card">
+                <!-- Project 4: Delta Airlines Dashboard -->
+                <article class="project-card">
                     <div class="project-title">Delta Airlines Flight Delay Performance Dashboard</div>
                     
                     <div class="project-section-label">Context</div>
@@ -1635,7 +1685,7 @@
                     <div class="project-downloads">
                         <a href="assets/Delta-Flight-Delay-Dashboard.pbix" download="Delta-Flight-Delay-Dashboard.pbix" target="_blank" rel="noreferrer" class="project-download-btn"><i class="bi bi-download"></i> Download Dashboard</a>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
 
@@ -1684,6 +1734,15 @@
                 </div>
 
                 <div class="project-card">
+                    <div class="project-title"><i class="bi bi-eye" aria-hidden="true"></i> Machine Learning & Unstructured Data Analytics</div>
+                    <div class="project-tags">
+                        <span class="tag">Scikit-learn</span>
+                        <span class="tag">HuggingFace</span>
+                        <span class="tag">YOLO</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
                     <div class="project-title"><i class="bi bi-briefcase" aria-hidden="true"></i> Enterprise Tools</div>
                     <div class="project-tags">
                         <span class="tag">HubSpot CRM</span>
@@ -1705,15 +1764,6 @@
                         <span class="tag">Spanish (Fluent)</span>
                     </div>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-title"><i class="bi bi-eye" aria-hidden="true"></i> Computer Vision & ML</div>
-                    <div class="project-tags">
-                        <span class="tag">Scikit-learn</span>
-                        <span class="tag">HuggingFace</span>
-                        <span class="tag">YOLO</span>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -1724,7 +1774,7 @@
                 <!-- Left Column -->
                 <div class="contact-v2-left">
                     <h2 class="contact-v2-heading">Let's Connect!</h2>
-                    <p class="contact-v2-subtext">Rising senior at the University of Notre Dame, graduating May 2027. Currently interning at Verso Ministries; actively recruiting for full-time roles in management consulting and business analytics beginning summer 2027. U.S. citizen eligible for security clearance.</p>
+                    <p class="contact-v2-subtext">Rising senior at the University of Notre Dame, graduating May 2027. Interning at Dhiyasoft LLC during summer 2026; actively recruiting for full-time roles in management consulting and business analytics beginning summer 2027. U.S. citizen eligible for security clearance.</p>
 
                     <a href="mailto:danielrr0713@gmail.com" class="contact-link-btn" aria-label="Send email to danielrr0713@gmail.com">
                         <i class="ti ti-mail" aria-hidden="true"></i>
