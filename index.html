@@ -850,7 +850,7 @@
         .experience-grid {
             display: grid;
             gap: 24px;
-            max-width: 1000px;
+            max-width: 900px;
         }
 
         .experience-card {
@@ -901,9 +901,10 @@
         }
 
         .exp-bullets {
-            list-style: none;
+            list-style: disc;
+            list-style-position: outside;
             margin: 0;
-            padding-left: 0;
+            padding-left: 22px;
             display: grid;
             gap: 12px;
         }
@@ -912,20 +913,11 @@
             font-size: 15px;
             color: var(--text-muted);
             line-height: 1.75;
-            position: relative;
-            padding-left: 28px;
+            padding-left: 6px;
         }
 
-        .exp-bullets li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-size: 1rem;
-            line-height: 1.75;
+        .exp-bullets li::marker {
             color: var(--accent);
-            font-family: 'Fragment Mono', 'JetBrains Mono', monospace;
-            margin-right: 12px;
         }
 
         .exp-intro {
@@ -1241,6 +1233,29 @@
                 padding: 60px 20px;
             }
 
+            /* Match experience card width exactly to education card width */
+            .education-grid,
+            .experience-grid {
+                max-width: 100%;
+                width: 100%;
+                margin: 0;
+            }
+
+            .experience-card {
+                padding: 28px;
+            }
+
+            /* Allow long date strings to wrap so cards don't overflow the viewport */
+            .exp-date {
+                white-space: normal;
+            }
+
+            footer {
+                padding: 28px 20px;
+                font-size: 11px;
+                white-space: nowrap;
+            }
+
             .contact-v2 {
                 padding: 60px 20px;
             }
@@ -1428,7 +1443,6 @@
                         <span class="tag">Software Testing</span>
                         <span class="tag">Code Review</span>
                         <span class="tag">Technical Documentation</span>
-                        <span class="tag">Agile Development</span>
                         <span class="tag">Tech Consulting</span>
                         <span class="tag">Salesforce</span>
                     </div>
@@ -1444,7 +1458,7 @@
                     <p class="exp-intro">Verso Ministries organizes Catholic pilgrimages for 1,000+ global travelers, with various standard and custom itineraries across five continents, coordinating trip logistics on behalf of trip leaders with Destination Management Companies. As an operations intern, I sit at the intersection of data infrastructure, process optimization, and client-facing logistics, building the systems that keep complex international travel operations running reliably.</p>
                     <ul class="exp-bullets">
                         <li>Engineered a data-driven market entry strategy into the African continent by scraping, cleaning, and benchmarking DMC service offerings across the region, driving informed decision-making for new business partnerships and widening the company's global footprint.</li>
-                        <li>Synthesized 10 years of disparate customer data from multiple sources using Python to build a targeted outreach strategy for the company’s older customer segment, driving a personalized approach to customer engagement and retention.</li>
+                        <li>Synthesized 10 years of disparate customer data from multiple sources using Python for a targeted outreach strategy, driving a personalized approach to customer engagement and retention.</li>
                         <li>Identified critical friction points in documentation workflows, automating manual processes using spreadsheet functions, backend JavaScript, and Google Gemini to engineer SOPs that reduced documentation time by 20% across 100+ trip offerings.</li>
                         <li>Maintained a 100% ticket resolution rate in HubSpot CRM within a 24-hour SLA across all customer inquiries.</li>
                         <li>Managed sensitive datasets integrating traveler flight, health, and passport information for international DMCs, ensuring data integrity across a high-stakes, compliance-sensitive operation</li>
@@ -1456,6 +1470,8 @@
                         <span class="tag">Workflow Optimization</span>
                         <span class="tag">HubSpot CRM</span>
                         <span class="tag">SOP Development</span>
+                        <span class="tag">Logistics Management</span>
+                        <span class="tag">International Logistics</span>
                     </div>
                 </article>
                 <article class="experience-card">
@@ -1476,7 +1492,7 @@
                         <span class="tag">Python</span>
                         <span class="tag">MongoDB</span>
                         <span class="tag">Web Scraping</span>
-                        <span class="tag">Financial Research</span>
+                        <span class="tag">Market Research</span>
                         <span class="tag">Executive Communication</span>
                     </div>
                 </article>
@@ -1498,7 +1514,6 @@
                         <span class="tag">ERP Systems</span>
                         <span class="tag">Excel</span>
                         <span class="tag">Market Research</span>
-                        <span class="tag">International Logistics</span>
                         <span class="tag">Spanish</span>
                     </div>
                 </article>
@@ -1521,7 +1536,7 @@
                     <ul class="exp-bullets">
                         <li>Major: Business Analytics</li>
                         <li>Minors: Business Honors Program, Impact Consulting, Liturgical Music Ministry, and Theology</li>
-                        <li>Competed in five corporate consulting case competitions, delivering data-driven strategic recommendations to senior representatives from Deloitte, KPMG, DaVita, and two additional firms — each involving independent research, quantitative analysis, and a live presentation under time constraints.</li>
+                        <li>Competed in five corporate consulting case competitions, delivering data-driven strategic recommendations to senior representatives from Deloitte, KPMG, West Monroe, DaVita, and 84.51° — each involving independent research, quantitative analysis, and a live presentation under time constraints.</li>
                         <li>Completed weekly real-world pricing analytics cases throughout the semester, producing both managerial memos and technical R reports for each, including the Tropicana/Jewel retail pricing case featured in the Projects section.</li>
 
                     </ul>
@@ -1533,6 +1548,8 @@
                         <span class="tag">Predictive Analytics</span>
                         <span class="tag">Machine Learning</span>
                         <span class="tag">Unstructured Data Analytics</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Cloud Computing (will take in Fall 2026)</span>
                     </div>
                     <a href="assets/Notre-Dame-Transcript.pdf" download="Notre-Dame-Transcript.pdf" class="project-download-btn transcript-btn" target="_blank" rel="noreferrer"><i class="bi bi-download" aria-hidden="true"></i> Download Unofficial Academic Transcript</a>
                 </article>
